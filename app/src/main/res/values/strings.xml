@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Court Counter</string>
+    <string name="team_1">TEAM А</string>
+    <string name="team_2">TEAM В</string>
+    <string name="plus_three_point">+3 POINTS</string>
+    <string name="plus_two_point">+2 POINTS</string>
+    <string name="plus_one_point">FREE THROW</string>
+    <string name="reset_button">RESET</string>
+</resources>

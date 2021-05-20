@@ -56,7 +56,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="56dp"
                         android:textStyle="bold" />
@@ -119,7 +118,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="56dp"
                         android:textStyle="bold" />
@@ -167,8 +165,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/linear_layout"
                 android:layout_centerHorizontal="true"
-                android:onClick="reset"
                 android:layout_marginTop="40dp"
+                android:onClick="reset"
                 android:text="@string/reset_button"
                 android:textColor="@color/black"
                 android:textSize="14sp" />

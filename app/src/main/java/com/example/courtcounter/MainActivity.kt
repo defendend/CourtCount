@@ -22,16 +22,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayTeamA() {
         val counterTeamA = findViewById(R.id.count_A) as TextView
-        counterTeamA.text = "" + countTeamA
+        counterTeamA.text = "$countTeamA"
     }
 
     private fun displayTeamB() {
         val counterTeamB = findViewById(R.id.count_B) as TextView
-        counterTeamB.text = "" + countTeamB
+        counterTeamB.text = "$countTeamB"
     }
 
     fun threePointA(view: View) {
-        countTeamA = countTeamA + 3
+        countTeamA += 3
         displayTeamA()
     }
 
@@ -59,9 +59,10 @@ class MainActivity : AppCompatActivity() {
         countTeamB += 1
         displayTeamB()
     }
-    fun reset(view: View){
-        countTeamA=0
-        countTeamB=0
+
+    fun reset(view: View) {
+        countTeamA = 0
+        countTeamB = 0
         display()
     }
 }

@@ -1,34 +1,56 @@
 package com.example.courtcounter
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel {
+class MainViewModel : ViewModel() {
 
-    var countTeamA = 0
-    var countTeamB = 0
+    var countTeamA = MutableLiveData(0)
+    var countTeamB = MutableLiveData(0)
 
     fun plusThreePointTeamA() {
-        countTeamA += 3
-    }
-
-    fun plusThreePointTeamB() {
-        countTeamB += 3
+        updateCountA(3)
     }
 
     fun plusTwoPointTeamA() {
-        countTeamA += 2
-    }
-
-    fun plusTwoPointTeamB() {
-        countTeamB += 2
+        updateCountA(2)
     }
 
     fun plusOnePointTeamA() {
-        countTeamA += 1
+        updateCountA(1)
+    }
+
+    fun plusThreePointTeamB() {
+        updateCountB(3)
+    }
+
+    fun plusTwoPointTeamB() {
+        updateCountB(2)
     }
 
     fun plusOnePointTeamB() {
-        countTeamB += 1
+        updateCountB(1)
+    }
+
+    fun reset(){
+        countTeamA.value = 0
+        countTeamB.value = 0
+    }
+
+    private fun getCountAValue(): Int{
+        return countTeamA.value?: 0
+    }
+
+    private fun getCountBValue(): Int{
+        return countTeamB.value?: 0
+    }
+
+    private fun updateCountA(number : Int) {
+        countTeamA.value = getCountAValue() + number
+    }
+
+    private fun updateCountB(number : Int){
+        countTeamB.value = getCountBValue() + number
     }
 
 

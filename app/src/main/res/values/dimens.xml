@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- spaces -->
+    <dimen name="normal_space">16dp</dimen>
+    <dimen name="extra_space">24dp</dimen>
+
+    <!-- text size -->
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_header">24sp</dimen>
+    <dimen name="count_number_size">56sp</dimen>
+
+</resources>

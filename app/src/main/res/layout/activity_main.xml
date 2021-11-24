@@ -1,176 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:orientation="horizontal"
-    android:padding="16dp"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_marginTop="@dimen/normal_space"
+        android:layout_marginBottom="@dimen/normal_space">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/normal_space" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guide_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/normal_space" />
+
+        <View
+            android:id="@+id/view_help_line"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@id/bottom_line"
+            app:layout_constraintEnd_toStartOf="@id/end_guide_line"
+            app:layout_constraintStart_toStartOf="@id/start_guide_line"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/count_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="linear_team_a, linear_team_b, view_help_line" />
+
+        <LinearLayout
+            android:id="@+id/linear_team_a"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/bottom_line"
+            app:layout_constraintEnd_toStartOf="@id/view_help_line"
+            app:layout_constraintStart_toStartOf="@id/start_guide_line"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/team_1"
+                android:textSize="@dimen/text_header"
+                android:textStyle="bold" />
 
             <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_above="@id/reset_button"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/extra_space"
                 android:background="@color/darker_gray" />
 
-            <LinearLayout
-                android:id="@+id/linear_layout"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/count_A"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/count_number_size"
+                android:textStyle="bold"/>
 
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="24dp"
-                        android:text="@string/team_1"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/count_A"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:textColor="@color/black"
-                        android:textSize="56dp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/buttonA1"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="threePointA"
-                        android:text="@string/plus_three_point"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <Button
-                        android:id="@+id/buttonA2"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="twoPointA"
-                        android:text="@string/plus_two_point"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <Button
-                        android:id="@+id/buttonA3"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="onePointA"
-                        android:text="@string/plus_one_point"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="24dp"
-                        android:text="@string/team_2"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/count_B"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:textColor="@color/black"
-                        android:textSize="56dp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/buttonB1"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="threePointB"
-                        android:text="@string/plus_three_point"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <Button
-                        android:id="@+id/buttonB2"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="twoPointB"
-                        android:text="@string/plus_two_point"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <Button
-                        android:id="@+id/buttonB3"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="16dp"
-                        android:onClick="onePointB"
-                        android:text="@string/plus_one_point"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/reset_button"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonA1"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/linear_layout"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:onClick="reset"
-                android:text="@string/reset_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/normal_space"
+                android:layout_marginBottom="@dimen/normal_space"
+                android:onClick="threePointA"
+                android:text="@string/plus_three_point"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
-        </RelativeLayout>
-    </ScrollView>
-</LinearLayout>
+                android:textSize="@dimen/text_size_normal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonA2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/normal_space"
+                android:onClick="twoPointA"
+                android:text="@string/plus_two_point"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_normal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonA3"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/normal_space"
+                android:onClick="onePointA"
+                android:text="@string/plus_one_point"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_normal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_team_b"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/bottom_line"
+            app:layout_constraintEnd_toStartOf="@id/end_guide_line"
+            app:layout_constraintStart_toStartOf="@id/view_help_line"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/team_2"
+                android:textSize="@dimen/text_header"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/extra_space"
+                android:background="@color/darker_gray" />
+
+            <TextView
+                android:id="@+id/count_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/count_number_size"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonB1"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/normal_space"
+                android:layout_marginBottom="@dimen/normal_space"
+                android:onClick="threePointB"
+                android:text="@string/plus_three_point"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_normal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonB2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/normal_space"
+                android:onClick="twoPointB"
+                android:text="@string/plus_two_point"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_normal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonB3"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/normal_space"
+                android:onClick="onePointB"
+                android:text="@string/plus_one_point"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_normal" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/darker_gray"
+            app:layout_constraintEnd_toStartOf="@id/end_guide_line"
+            app:layout_constraintStart_toStartOf="@id/start_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/linear_team_a" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/reset_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="reset"
+            android:text="@string/reset_button"
+            android:layout_marginTop="@dimen/normal_space"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/end_guide_line"
+            app:layout_constraintStart_toStartOf="@id/start_guide_line"
+            app:layout_constraintTop_toBottomOf="@id/linear_team_a" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
 

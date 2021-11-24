@@ -9,29 +9,29 @@ class MainActivity : AppCompatActivity() {
     private var countTeamA: Int = 0
     private var countTeamB: Int = 0
 
+    private val modelView: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        display()
+        initObserves()
     }
 
-    private fun display() {
-        displayTeamA()
-        displayTeamB()
-    }
+    private fun initObserves() {
+        val countTeamA = findViewById<TextView>(R.id.count_A)
+        val countTeamB = findViewById<TextView>(R.id.count_B)
+        modelView.countTeamA.observe(this) {
+            countTeamA.text = it
+        }
 
-    private fun displayTeamA() {
-        val counterTeamA = findViewById(R.id.count_A) as TextView
-        counterTeamA.text = "$countTeamA"
-    }
+        modelView.countTeamB.observe(this) {
+            countTeamB.text = it
+        }
 
-    private fun displayTeamB() {
-        val counterTeamB = findViewById(R.id.count_B) as TextView
-        counterTeamB.text = "$countTeamB"
     }
 
     fun threePointA(view: View) {
-        countTeamA += 3
+        modelView.
         displayTeamA()
     }
 
